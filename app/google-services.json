@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "772247826947",
+    "firebase_url": "https://civix-403d2.firebaseio.com",
+    "project_id": "civix-403d2",
+    "storage_bucket": "civix-403d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772247826947:android:26961853c18ed89a",
+        "android_client_info": {
+          "package_name": "com.getcivix.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772247826947-jvabimpjicbfrlfee90t2iokucd528k8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAGp2lw4XE43mdYA3f9vt6RoFuVybh07w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

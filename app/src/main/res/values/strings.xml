@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">CivixTeam</string>
+    <string name="login">Login</string>
+    <string name="register">New? Register</string>
+    <string name="signup">Sign Up</string>
+    <string name="backToLogin">Have an account? Login</string>
+    <string name="emailhint">Enter email</string>
+    <string name="addresshint">Enter address</string>
+    <string name="passwordhint">Enter password</string>
+    <string name="startreport">Enter a report</string>
+    <string name="category1">Trash</string>
+    <string name="category2">Street</string>
+    <string name="category3">Sidewalk</string>
+    <string name="category4">Property</string>
+    <string name="category5">Water</string>
+    <string name="category6">Ramp</string>
+    <string name="category7">Bike Lane</string>
+    <string name="category8">Crosswalk</string>
+    <string name="category9">Other</string>
+    <string name="beHeardHeader">CIVIX - BE HEARD. HAVE IMPACT</string>
+    <string name="trashHeader">Trash report details and picture</string>
+    <string name="streetHeader">Street report details and picture</string>
+    <string name="sidewalkHeader">Sidewalk report details and picture</string>
+    <string name="bikeHeader">Bike lane report details and picture</string>
+
+    <string name="interest_prompt">What is your interest?</string>
+
+    <string-array name="interest_arrays">
+        <item>Sport</item>
+        <item>Music</item>
+        <item>Public policy</item>
+        <item>Photography</item>
+    </string-array>
+
+
+    <string name="home">Home</string>
+    <string name="map">Map</string>
+    <string name="list">List</string>
+    <string name="status">Status</string>
+</resources>

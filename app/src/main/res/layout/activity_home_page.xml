@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.getcivix.app.HomePage">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:background="@drawable/civixbackground"
+        />
+
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="101dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25dp"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:text="@string/category1"
+        android:textColor="@color/civixGreen"
+        android:textStyle="bold"
+        android:shadowColor="@color/white"
+        android:background="@drawable/trash"/>/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="101dp"
+        android:layout_height="136dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:text="@string/category2"
+        android:textColor="@color/civixGreen"
+        android:textStyle="bold"
+        android:shadowColor="@color/white"
+        android:background="@drawable/street"
+        />
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="101dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:text="@string/category3"
+        android:textColor="@color/civixGreen"
+        android:textStyle="bold"
+        android:shadowColor="@color/white"
+        android:background="@drawable/sidewalk"
+        />
+
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="101dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="170dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25dp"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:text="@string/category4"
+        android:textColor="@color/civixGreen"
+        android:textStyle="bold"
+        android:shadowColor="@color/white"
+        android:background="@drawable/property"
+        />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="101dp"
+        android:layout_height="136dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="170dp"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:text="@string/category5"
+        android:textColor="@color/civixGreen"
+        android:textStyle="bold"
+        android:shadowColor="@color/white"
+        android:background="@drawable/water"
+        />
+
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="101dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="170dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:text="@string/category6"
+        android:textColor="@color/civixGreen"
+        android:textStyle="bold"
+        android:shadowColor="@color/white"
+        android:background="@drawable/other"
+        />
+
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="101dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="320dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25dp"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:text="@string/category7"
+        android:textColor="@color/civixGreen"
+        android:textStyle="bold"
+        android:shadowColor="@color/white"
+        android:background="@drawable/property"
+        />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="101dp"
+        android:layout_height="136dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="320dp"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:text="@string/category8"
+        android:textColor="@color/civixGreen"
+        android:textStyle="bold"
+        android:shadowColor="@color/white"
+        android:background="@drawable/water"
+        />
+
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="101dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="320dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:text="@string/category9"
+        android:textColor="@color/civixGreen"
+        android:textStyle="bold"
+        android:shadowColor="@color/white"
+        android:background="@drawable/other"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+
+        <Button
+            android:id="@+id/buttonHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:shadowColor="@color/white"
+            android:background="@drawable/ic_home_green_24dp"/>
+
+        <Button
+            android:id="@+id/buttonMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:shadowColor="@color/white"
+            android:background="@drawable/ic_location_on_grey_24dp"/>
+
+        <Button
+            android:id="@+id/buttonList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:shadowColor="@color/white"
+            android:background="@drawable/ic_view_list_grey_24dp"/>
+
+        <Button
+            android:id="@+id/buttonStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:shadowColor="@color/white"
+            android:background="@drawable/ic_check_circle_grey_24dp"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</RelativeLayout>
