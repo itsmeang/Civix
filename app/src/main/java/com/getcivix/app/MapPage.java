@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,8 +15,14 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.seniortasse.civixteam.R;
@@ -27,8 +35,13 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapPage extends FragmentActivity implements OnMapReadyCallback {
 
@@ -46,6 +59,9 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
                 return;
             }
             mMap.setMyLocationEnabled(true);
+            mMap.getUiSettings().setMyLocationButtonEnabled(false);
+
+            init();
         }
     }
 
@@ -58,7 +74,9 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
     private static final String MAIN = "MainActivity";
     private static final int ERROR_DIALOG_REQUEST=9001;
 
-
+    //widgets
+    private EditText mSearchText;
+    private ImageView mGps;
     //vars
     private Boolean mLocationPermissionGranted=false;
     private GoogleMap mMap;
@@ -68,10 +86,63 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_page);
-
         isServicesOK();
+        mSearchText=(EditText)findViewById(R.id.input_search);
+        mGps=(ImageView)findViewById(R.id.ic_gps);
 
         getLocationPermission();
+
+
+    }
+
+    private void init(){
+        Log.d(TAG, "init: initializing");
+        mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent keyEvent) {
+                if(actionId==EditorInfo.IME_ACTION_SEARCH
+                        ||actionId==EditorInfo.IME_ACTION_DONE
+                        ||keyEvent.getAction()==KeyEvent.ACTION_DOWN
+                        ||keyEvent.getAction()==KeyEvent.KEYCODE_ENTER) {
+
+                    //execute method for searching
+                    geoLocate();
+                }
+                return false;
+            }
+        });
+        mGps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: clicked gps icon");
+                getDeviceLocation();
+            }
+        });
+
+        hideSoftKeybard();
+    }
+    private void geoLocate(){
+        Log.d(TAG, "geoLocate: geolocating");
+
+        String searchString=mSearchText.getText().toString();
+
+        Geocoder geocoder=new Geocoder(MapPage.this);
+        List<Address> list=new ArrayList<>();
+        try{
+            list=geocoder.getFromLocationName(searchString,1);
+        }catch(IOException e){
+            Log.e(TAG, "geoLocate: IOException: " +e.getMessage() );
+        }
+        if(list.size()>0){
+            Address address=list.get(0);
+
+            Log.d(TAG, "geoLocate: found a location: "+address.toString());
+           //Toast.makeText(this,address.toString(),Toast.LENGTH_SHORT).show();
+
+            moveCamera(new LatLng(address.getLatitude(),address.getLongitude()),DEFAULT_ZOOM,
+                    address.getAddressLine(0));
+        }
+
     }
 
     public boolean isServicesOK(){
@@ -111,7 +182,8 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
                             Location currentLocation=(Location)task.getResult();
 
                             moveCamera(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude()),
-                                    DEFAULT_ZOOM);
+                                    DEFAULT_ZOOM,
+                                   "My Location");
 
                         }else{
                             Log.d(TAG, "onComplete: current location is null");
@@ -126,9 +198,18 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
         }
     }
 
-    private void moveCamera(LatLng latlng, float zoom){
-        Log.d(TAG, "moveCamera: moving the camera to: lat: "+latlng.latitude+ ", lng: "+latlng.longitude);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng,zoom));
+    private void moveCamera(LatLng latlng, float zoom, String title) {
+        Log.d(TAG, "moveCamera: moving the camera to: lat: " + latlng.latitude + ", lng: " + latlng.longitude);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, zoom));
+
+        if (!title.equals("My Location")) {
+
+            MarkerOptions options = new MarkerOptions()
+                    .position(latlng)
+                    .title(title);
+
+            mMap.addMarker(options);
+        }
 
     }
 
@@ -188,6 +269,9 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
         }
     }
 
+private void hideSoftKeybard(){
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+}
 }
 
