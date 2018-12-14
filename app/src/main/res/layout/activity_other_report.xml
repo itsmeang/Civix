@@ -6,52 +6,22 @@
     android:layout_height="match_parent"
     tools:context="com.getcivix.app.OtherReport">
 
-
-    <LinearLayout
-        android:id="@+id/bottomBar"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="match_parent"
+        android:layout_above="@id/main_nav"></FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/main_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        >
-
-        <Button
-            android:id="@+id/buttonHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:shadowColor="@color/white"
-            android:background="@drawable/ic_home_grey_24dp"/>
-
-        <Button
-            android:id="@+id/buttonMap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:shadowColor="@color/white"
-            android:background="@drawable/ic_location_on_grey_24dp"/>
-
-        <Button
-            android:id="@+id/buttonList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:shadowColor="@color/white"
-            android:background="@drawable/ic_view_list_grey_24dp"/>
-
-        <Button
-            android:id="@+id/buttonStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:shadowColor="@color/white"
-            android:background="@drawable/ic_check_circle_grey_24dp"/>
-
-    </LinearLayout>
+        app:menu="@menu/navigation"
+        app:labelVisibilityMode="labeled"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:itemIconTint="@color/bottom_nav_color"
+        />
 
 </RelativeLayout>
