@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.seniortasse.civixteam.R;
+import com.getcivix.app.civixteam.R;
 
 public class HomePage extends Activity implements View.OnClickListener{
 

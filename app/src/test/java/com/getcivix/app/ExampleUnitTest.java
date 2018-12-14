@@ -1,4 +1,4 @@
-package com.example.seniortasse.civixteam;
+package com.getcivix.app;
 
 import org.junit.Test;
 
