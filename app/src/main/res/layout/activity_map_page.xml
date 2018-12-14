@@ -28,7 +28,7 @@
             android:id="@+id/ic_magnify"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_magnify"/>
+            android:src="@drawable/other"/>
 
         <EditText
             android:layout_width="match_parent"

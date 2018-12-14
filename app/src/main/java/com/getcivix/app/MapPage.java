@@ -1,5 +1,6 @@
 package com.getcivix.app;
 
+
 import android.Manifest;
 import android.app.Dialog;
 import android.content.pm.PackageManager;
@@ -22,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.getcivix.app.civixteam.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.location.FusedLocationProviderClient;
