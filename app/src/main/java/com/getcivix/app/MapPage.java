@@ -2,6 +2,7 @@ package com.getcivix.app;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -17,6 +18,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.seniortasse.civixteam.R;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -52,6 +55,8 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
     private static final String COARSE_LOCATION= Manifest.permission.ACCESS_COARSE_LOCATION;
     private static final int LOCATION_PERMISSION_REQUEST_CODE=1234;
     private static final float DEFAULT_ZOOM=15;
+    private static final String MAIN = "MainActivity";
+    private static final int ERROR_DIALOG_REQUEST=9001;
 
 
     //vars
@@ -64,8 +69,32 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_page);
 
+        isServicesOK();
+
         getLocationPermission();
     }
+
+    public boolean isServicesOK(){
+        Log.d(MAIN, "isServicesOK: checking google services version");
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MapPage.this);
+
+        if (available == ConnectionResult.SUCCESS) {
+            //everything is fine and user can make map requests
+            Log.d(MAIN, "isServicesOK: Google Play Services is working");
+            return true;
+        }
+        else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
+            //an error occured but we can resolve it
+            Log.d(MAIN, "isServicesOK: an error occured but we can fix it");
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MapPage.this, available, ERROR_DIALOG_REQUEST);
+            dialog.show();
+        } else{
+            Toast.makeText(this, "you can't make map requestd", Toast.LENGTH_SHORT).show();
+        }
+
+        return false;
+    }
+
     private void getDeviceLocation(){
         Log.d(TAG, "getDeviceLocation: getting the device's current location");
 
