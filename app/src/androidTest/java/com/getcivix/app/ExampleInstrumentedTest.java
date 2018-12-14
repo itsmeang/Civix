@@ -1,4 +1,4 @@
-package com.example.seniortasse.civixteam;
+package com.getcivix.app;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.seniortasse.civixteam", appContext.getPackageName());
+        assertEquals("com.example.app.civixteam", appContext.getPackageName());
     }
 }
