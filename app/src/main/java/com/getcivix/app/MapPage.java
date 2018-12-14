@@ -22,6 +22,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
 
 import com.getcivix.app.R;
 import com.google.android.gms.common.ConnectionResult;
@@ -73,19 +75,20 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
     private static final int ERROR_DIALOG_REQUEST=9001;
 
     //widgets
-    private EditText mSearchText;
+    private AutoCompleteTextView mSearchText;
     private ImageView mGps;
     //vars
     private Boolean mLocationPermissionGranted=false;
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationProviderClient;
+    private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_page);
         isServicesOK();
-        mSearchText=(EditText)findViewById(R.id.input_search);
+        mSearchText=(AutoCompleteTextView) findViewById(R.id.input_search);
         mGps=(ImageView)findViewById(R.id.ic_gps);
 
         getLocationPermission();
@@ -98,6 +101,7 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
         mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent keyEvent) {
+                //mPlaceAutocompleteAdapter=new PlaceAutocompleteAdapter()
                 if(actionId==EditorInfo.IME_ACTION_SEARCH
                         ||actionId==EditorInfo.IME_ACTION_DONE
                         ||keyEvent.getAction()==KeyEvent.ACTION_DOWN
@@ -271,5 +275,14 @@ private void hideSoftKeybard(){
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 }
+
+    //google places API
+    private AdapterView.OnItemClickListener MAutocompleteClickListener= new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            hideSoftKeybard();
+            //final AutocompletePrediction item=mPlaceAutocompleteAdapter.getItem
+        }
+    };
 }
 
