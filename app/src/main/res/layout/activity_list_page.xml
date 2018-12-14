@@ -5,16 +5,4 @@
     android:layout_height="match_parent"
     tools:context="com.getcivix.app.ListPage">
 
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="131dp"
-        android:layout_marginLeft="131dp"
-        android:layout_marginTop="215dp"
-        android:text="@string/why" />
 </RelativeLayout>

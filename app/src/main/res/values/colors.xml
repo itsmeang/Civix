@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="civixGreen">#008577</color>
+    <color name="civixGreen">#007e85</color>
+    <color name="fragmentcolor">#c6007e85</color>
+
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
     <color name="beige">#E1C699</color>
     <color name="lightGrey">#CCCCCC</color>
 </resources>
