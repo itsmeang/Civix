@@ -42,6 +42,7 @@ public class OtherReport extends AppCompatActivity implements BottomNavigationVi
         switch (item.getItemId()) {
             case R.id.map:
                 fragment = new MapFragment();
+                ((MapFragment) fragment).setThisActivity(this);
                 break;
 
             case R.id.notifications:
