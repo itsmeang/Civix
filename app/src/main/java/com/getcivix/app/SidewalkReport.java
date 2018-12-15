@@ -1,69 +1,88 @@
 package com.getcivix.app;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+
+
 
 import com.getcivix.app.R;
 
-public class SidewalkReport extends Activity implements View.OnClickListener{
+import java.util.Set;
 
-    // Bottom navigation buttons
-    Button buttonHome;
-    Button buttonMap;
-    Button buttonList;
-    Button buttonStatus;
+public class SidewalkReport extends Activity{
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sidewalk_report);
+    
 
-        buttonHome = findViewById(R.id.buttonHome);
-        buttonMap = findViewById(R.id.buttonMap);
-        buttonList = findViewById(R.id.buttonList);
-        buttonStatus = findViewById(R.id.buttonStatus);
+ @Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_sidewalk_report);
+
+   final Button myButton = findViewById(R.id.mybutton);
+
+    //myButton.setOnClickListener(new View.OnClickListener() {
 
 
-        buttonHome.setOnClickListener(this);
-        buttonMap.setOnClickListener(this);
-        buttonList.setOnClickListener(this);
-        buttonStatus.setOnClickListener(this);
+     myButton.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             showMyDialog (myButton);
+         }
+     });
+
+
+}
+
+    private void showMyDialog(Button myButton) {
     }
 
-    @Override
-    public void onClick(View v) {
 
-        // If we click on "Home" button, then...
-        // we should land on Home Page
+    private void showMyDialog(Context context) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.fragment_report_screen);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(true);
 
-        if (v == buttonHome) {
-            Intent intentHome = new Intent(this, HomePage.class);
-            startActivity(intentHome);
-        }
+        TextView textView = (TextView) dialog.findViewById(R.id.txtTitle);
+        ListView listView = (ListView) dialog.findViewById(R.id.listView);
+        Button btnBtmLeft = (Button) dialog.findViewById(R.id.btnBtmLeft);
+        Button btnBtmRight = (Button) dialog.findViewById(R.id.btnBtmRight);
 
+        btnBtmLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
-        // If we click on "Map" button, then...
-        // we should land on Map Page
-        if (v == buttonMap) {
-            Intent intentMap = new Intent(this, MapPage.class);
-            startActivity(intentMap);
-        }
+        btnBtmRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // do whatever you want here
+            }
+        });
 
-        // If we click on "List" button, then...
-        // we should land on List Page
-        else if (v == buttonList) {
-            Intent intentList = new Intent(this, ListPage.class);
-            startActivity(intentList);
-        }
-        // If we click on "Status" button, then...
-        // we should land on Status Page
-        else if (v == buttonStatus) {
-            Intent intentStatus = new Intent(this, StatusPage.class);
-            startActivity(intentStatus);
-        }
+        /**
+         * if you want the dialog to be specific size, do the following
+         * this will cover 85% of the screen (85% width and 85% height)
+         */
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        int dialogWidth = (int)(displayMetrics.widthPixels * 0.85);
+        int dialogHeight = (int)(displayMetrics.heightPixels * 0.85);
+        dialog.getWindow().setLayout(dialogWidth, dialogHeight);
 
+        dialog.show();
     }
+
+
 }
