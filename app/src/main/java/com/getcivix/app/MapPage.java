@@ -28,13 +28,18 @@ import android.widget.Toast;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 
+import com.getcivix.app.Models.ReportInfo;
 import com.getcivix.app.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.AutocompletePrediction;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.PlaceBuffer;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -144,6 +149,7 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
     private GoogleApiClient mGoogleApiClient;
+    private ReportInfo mPlace;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -172,6 +178,7 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
                 .enableAutoManage(this, this)
                 .build();
 
+        mSearchText.setOnItemClickListener(mAutocompleteClickListener);
 
         mPlaceAutocompleteAdapter=new PlaceAutocompleteAdapter(this,mGoogleApiClient,LAT_LNT_BOUNDS,null);
 
@@ -361,11 +368,53 @@ private void hideSoftKeybard(){
 }
 
     //google places API
-    private AdapterView.OnItemClickListener MAutocompleteClickListener= new AdapterView.OnItemClickListener() {
+    private AdapterView.OnItemClickListener mAutocompleteClickListener= new AdapterView.OnItemClickListener() {
         @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
             hideSoftKeybard();
-            //final AutocompletePrediction item=mPlaceAutocompleteAdapter.getItem;
+
+            final AutocompletePrediction item=mPlaceAutocompleteAdapter.getItem(i);
+            final String placeId=item.getPlaceId();
+
+            PendingResult<PlaceBuffer>placeResult=Places.GeoDataApi
+                    .getPlaceById(mGoogleApiClient,placeId);
+            placeResult.setResultCallback(mUpdatePlaceDetailsCallback);
+
+        }
+    };
+
+    private ResultCallback<PlaceBuffer>mUpdatePlaceDetailsCallback=new ResultCallback<PlaceBuffer>() {
+        @Override
+        public void onResult(@NonNull PlaceBuffer places) {
+            if(!places.getStatus().isSuccess()){
+                Log.d(TAG, "onResult: Place query did not complete successfully: "+places.getStatus().toString());
+                places.release();
+                return;
+
+            }
+            final Place place=places.get(0);
+
+            try {
+
+                mPlace=new ReportInfo();
+                mPlace.setAddress(place.getAddress().toString());
+                mPlace.setId(place.getId());
+                mPlace.setLatLng(place.getLatLng());
+                mPlace.setName(place.getName().toString());
+
+                Log.d(TAG, "onResult: place: "+mPlace.toString());
+
+            }catch (NullPointerException e){
+                Log.e(TAG, "onResult: NullPointerException: "  );
+            }
+
+            moveCamera (new LatLng((place.getViewport().getCenter().latitude), place.getViewport().getCenter().longitude),DEFAULT_ZOOM,mPlace.getName());
+
+            places.release();
+
+
+
+
         }
     };
 
