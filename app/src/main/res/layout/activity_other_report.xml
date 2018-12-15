@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="56dp"
         android:text="THIS IS THE FRAGMENT CONTAINER">
-
     </FrameLayout>
 
 
