@@ -34,6 +34,7 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.places.AutocompletePrediction;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -135,7 +136,7 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
     private static final LatLngBounds LAT_LNT_BOUNDS=new LatLngBounds(new LatLng(-40,-168),new LatLng(71,136));
 
     //widgets
-    private EditText mSearchText;
+    private AutoCompleteTextView mSearchText;
     private ImageView mGps;
     //vars
     private Boolean mLocationPermissionGranted=false;
@@ -149,7 +150,7 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_page);
         isServicesOK();
-        mSearchText=(EditText) findViewById(R.id.input_search);
+        mSearchText=(AutoCompleteTextView) findViewById(R.id.input_search);
         mGps=(ImageView)findViewById(R.id.ic_gps);
 
 
@@ -164,22 +165,21 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
     private void init(){
         Log.d(TAG, "init: initializing");
 
-        //mGoogleApiClient = new GoogleApiClient
-                //.Builder(this)
-                //.addApi(Places.GEO_DATA_API)
-                //.addApi(Places.PLACE_DETECTION_API)
-                //.enableAutoManage(this, this)
-                //.build();
+        mGoogleApiClient = new GoogleApiClient
+                .Builder(this)
+                .addApi(Places.GEO_DATA_API)
+                .addApi(Places.PLACE_DETECTION_API)
+                .enableAutoManage(this, this)
+                .build();
 
 
-        //mPlaceAutocompleteAdapter=new PlaceAutocompleteAdapter(this,mGoogleApiClient,LAT_LNT_BOUNDS,null);
+        mPlaceAutocompleteAdapter=new PlaceAutocompleteAdapter(this,mGoogleApiClient,LAT_LNT_BOUNDS,null);
 
-        //mSearchText.setAdapter(mPlaceAutocompleteAdapter);
+        mSearchText.setAdapter(mPlaceAutocompleteAdapter);
 
         mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent keyEvent) {
-                //mPlaceAutocompleteAdapter=new PlaceAutocompleteAdapter()
                 if(actionId==EditorInfo.IME_ACTION_SEARCH
                         ||actionId==EditorInfo.IME_ACTION_DONE
                         ||keyEvent.getAction()==KeyEvent.ACTION_DOWN
@@ -365,7 +365,7 @@ private void hideSoftKeybard(){
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             hideSoftKeybard();
-            //final AutocompletePrediction item=mPlaceAutocompleteAdapter.getItem
+            //final AutocompletePrediction item=mPlaceAutocompleteAdapter.getItem;
         }
     };
 
