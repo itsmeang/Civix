@@ -26,6 +26,8 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.data.DataBufferUtils;
 import com.google.android.gms.location.places.AutocompleteFilter;
 import com.google.android.gms.location.places.AutocompletePrediction;
@@ -39,6 +41,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+
 /**
  * Adapter that handles Autocomplete requests from the Places Geo Data Client.
  * {@link AutocompletePrediction} results from the API are frozen and stored directly in this
@@ -69,10 +72,10 @@ public class PlaceAutocompleteAdapter
      *
      * @see android.widget.ArrayAdapter#ArrayAdapter(android.content.Context, int)
      */
-    public PlaceAutocompleteAdapter(Context context, GeoDataClient geoDataClient,
+    public PlaceAutocompleteAdapter(Context context, GoogleApiClient geoDataClient,
                                     LatLngBounds bounds, AutocompleteFilter filter) {
         super(context, android.R.layout.simple_expandable_list_item_2, android.R.id.text1);
-        mGeoDataClient = geoDataClient;
+        //mGeoDataClient = geoDataClient;
         mBounds = bounds;
         mPlaceFilter = filter;
     }

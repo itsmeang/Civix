@@ -28,22 +28,30 @@ import android.widget.AutoCompleteTextView;
 import com.getcivix.app.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.GeoPoint;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapPage extends FragmentActivity implements OnMapReadyCallback {
+public class MapPage extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener {
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -73,22 +81,24 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
     private static final float DEFAULT_ZOOM=15;
     private static final String MAIN = "MainActivity";
     private static final int ERROR_DIALOG_REQUEST=9001;
+    private static final LatLngBounds LAT_LNT_BOUNDS=new LatLngBounds(new LatLng(-40,-168),new LatLng(71,136));
 
     //widgets
-    private AutoCompleteTextView mSearchText;
+    private EditText mSearchText;
     private ImageView mGps;
     //vars
     private Boolean mLocationPermissionGranted=false;
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
+    private GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_page);
         isServicesOK();
-        mSearchText=(AutoCompleteTextView) findViewById(R.id.input_search);
+        mSearchText=(EditText) findViewById(R.id.input_search);
         mGps=(ImageView)findViewById(R.id.ic_gps);
 
         getLocationPermission();
@@ -98,6 +108,19 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
 
     private void init(){
         Log.d(TAG, "init: initializing");
+
+        //mGoogleApiClient = new GoogleApiClient
+                //.Builder(this)
+                //.addApi(Places.GEO_DATA_API)
+                //.addApi(Places.PLACE_DETECTION_API)
+                //.enableAutoManage(this, this)
+                //.build();
+
+
+        //mPlaceAutocompleteAdapter=new PlaceAutocompleteAdapter(this,mGoogleApiClient,LAT_LNT_BOUNDS,null);
+
+        //mSearchText.setAdapter(mPlaceAutocompleteAdapter);
+
         mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent keyEvent) {
@@ -175,13 +198,18 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
 
         try{
             if (mLocationPermissionGranted) {
-                Task location=mFusedLocationProviderClient.getLastLocation();
+                final Task location=mFusedLocationProviderClient.getLastLocation();
                 location.addOnCompleteListener(new OnCompleteListener() {
                     @Override
                     public void onComplete(@NonNull Task task) {
                         if(task.isSuccessful()) {
                             Log.d(TAG, "onComplete: found location");
                             Location currentLocation=(Location)task.getResult();
+
+
+                            GeoPoint geoPoint=new GeoPoint(currentLocation.getLatitude(),currentLocation.getLongitude());
+                            Log.d(TAG, "onComplete: latitude: "+currentLocation.getLatitude());
+                            Log.d(TAG, "onComplete: longitude: "+currentLocation.getLongitude());
 
                             moveCamera(new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude()),
                                     DEFAULT_ZOOM,
@@ -199,6 +227,7 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback {
             Log.e(TAG, "getDeviceLocation: SecurityException"+ e.getMessage() );
         }
     }
+
 
     private void moveCamera(LatLng latlng, float zoom, String title) {
         Log.d(TAG, "moveCamera: moving the camera to: lat: " + latlng.latitude + ", lng: " + latlng.longitude);
@@ -284,5 +313,7 @@ private void hideSoftKeybard(){
             //final AutocompletePrediction item=mPlaceAutocompleteAdapter.getItem
         }
     };
+
+
 }
 

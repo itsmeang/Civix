@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,34 +14,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD5OeXsFVi9m30L6csYEbF8xe7NEz8lnhU" />
+            android:value="AIzaSyD5OeXsFVi9m30L6csYEbF8xe7NEz8lnhU"/>
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".LoginPage">
+        <activity android:name="com.getcivix.app.LoginPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomePage" />
-        <activity android:name=".MapPage" />
-        <activity android:name=".ListPage" />
-        <activity android:name=".StatusPage" />
-        <activity android:name=".TrashReport" />
-        <activity android:name=".StreetReport" />
-        <activity android:name=".SidewalkReport" />
-        <activity android:name=".PropertyReport" />
-        <activity android:name=".WaterReport" />
-        <activity android:name=".RampReport" />
-        <activity android:name=".BikeReport" />
-        <activity android:name=".CrosswalkReport" />
-        <activity android:name=".OtherReport" />
-        <activity android:name=".SignupPage"></activity>
+        <activity android:name="com.getcivix.app.HomePage" />
+        <activity android:name="com.getcivix.app.MapPage" />
+        <activity android:name="com.getcivix.app.ListPage" />
+        <activity android:name="com.getcivix.app.StatusPage" />
+        <activity android:name="com.getcivix.app.TrashReport" />
+        <activity android:name="com.getcivix.app.StreetReport" />
+        <activity android:name="com.getcivix.app.SidewalkReport" />
+        <activity android:name="com.getcivix.app.PropertyReport" />
+        <activity android:name="com.getcivix.app.WaterReport" />
+        <activity android:name="com.getcivix.app.RampReport" />
+        <activity android:name="com.getcivix.app.BikeReport" />
+        <activity android:name="com.getcivix.app.CrosswalkReport" />
+        <activity android:name="com.getcivix.app.OtherReport"></activity>
     </application>
 
 </manifest>
