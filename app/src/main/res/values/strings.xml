@@ -5,8 +5,10 @@
     <string name="signup">Sign Up</string>
     <string name="backToLogin">Have an account? Login</string>
     <string name="emailhint">Enter email</string>
+    <string name="usernamehint">Enter username</string>
     <string name="addresshint">Enter address</string>
     <string name="passwordhint">Enter password</string>
+    <string name="createpasswordhint">Create password</string>
     <string name="startreport">Enter a report</string>
     <string name="category1">Trash</string>
     <string name="category2">Street</string>
@@ -37,8 +39,16 @@
     <string name="map">Map</string>
     <string name="list">List</string>
     <string name="status">Status</string>
-    <string name="notifications">Notifications</string>
-    <string name="voice">Share</string>
+    <string name="notifications">Notifs</string>
+    <string name="voice">Be heard</string>
     <string name="profile">Profile</string>
     <string name="othermenu">Other</string>
+
+    <string name="hint_gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="interests">Interesrs</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

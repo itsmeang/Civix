@@ -7,9 +7,14 @@
     tools:context="com.getcivix.app.OtherReport">
 
     <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/main_nav"></FrameLayout>
+        android:layout_marginBottom="56dp"
+        android:text="THIS IS THE FRAGMENT CONTAINER">
+    </FrameLayout>
+
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/main_nav"
