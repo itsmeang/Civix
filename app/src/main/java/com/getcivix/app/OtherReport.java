@@ -40,25 +40,26 @@ public class OtherReport extends AppCompatActivity implements BottomNavigationVi
         Fragment fragment = null;
 
         switch (item.getItemId()) {
-            case R.id.map:
+            case R.id.mapmenu:
                 fragment = new MapFragment();
                 ((MapFragment) fragment).setThisActivity(this);
                 break;
 
-            case R.id.notifications:
+            case R.id.notificationmenu:
                 fragment = new ProfileFragment();
                 break;
 
-            case R.id.voice:
+            case R.id.voicemenu:
                 fragment = new ProfileFragment();
                 break;
 
-            case R.id.profile:
+            case R.id.profilemenu:
                 fragment = new ProfileFragment();
                 break;
 
             case R.id.othermenu:
-                fragment = new ProfileFragment();
+                fragment = new MapFragment();
+                ((MapFragment) fragment).setThisActivity(this);
                 break;
         }
 

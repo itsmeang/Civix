@@ -10,11 +10,14 @@ import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
@@ -47,7 +50,55 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapPage extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener {
+public class MapPage extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener,
+        BottomNavigationView.OnNavigationItemSelectedListener{
+
+    //getting bottom navigation view
+    BottomNavigationView navigation;
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment fragment = null;
+
+        switch (item.getItemId()) {
+            case R.id.mapmenu:
+                fragment = new ProfileFragment();
+                break;
+
+            case R.id.notificationmenu:
+                fragment = new ProfileFragment();
+                break;
+
+            case R.id.voicemenu:
+                fragment = new ProfileFragment();
+                break;
+
+            case R.id.profilemenu:
+                fragment = new ProfileFragment();
+                break;
+
+            case R.id.othermenu:
+                fragment = new ProfileFragment();
+                break;
+        }
+
+        return loadFragment(fragment);
+    }
+
+
+
+    private boolean loadFragment(Fragment fragment) {
+        //switching fragment
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.mapfragment_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
@@ -100,6 +151,10 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
         isServicesOK();
         mSearchText=(EditText) findViewById(R.id.input_search);
         mGps=(ImageView)findViewById(R.id.ic_gps);
+
+
+        navigation = findViewById(R.id.main_navigation);
+        navigation.setOnNavigationItemSelectedListener(this);
 
         getLocationPermission();
 
