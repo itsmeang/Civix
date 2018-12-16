@@ -20,7 +20,7 @@ import java.util.Set;
 
 public class SidewalkReport extends Activity{
 
-    
+
 
  @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +35,13 @@ protected void onCreate(Bundle savedInstanceState) {
      myButton.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
-             showMyDialog (myButton);
+             showMyDialog (getApplicationContext());
          }
      });
 
 
 }
 
-    private void showMyDialog(Button myButton) {
-    }
 
 
     private void showMyDialog(Context context) {

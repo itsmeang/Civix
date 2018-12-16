@@ -268,7 +268,9 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
                             Log.d(TAG, "onComplete: found location");
                             Location currentLocation=(Location)task.getResult();
 
-
+                            if(currentLocation == null) {
+                                return;
+                            }
                             GeoPoint geoPoint=new GeoPoint(currentLocation.getLatitude(),currentLocation.getLongitude());
                             Log.d(TAG, "onComplete: latitude: "+currentLocation.getLatitude());
                             Log.d(TAG, "onComplete: longitude: "+currentLocation.getLongitude());
