@@ -18,7 +18,7 @@ import com.getcivix.app.R;
 
 import java.util.Set;
 
-public class SidewalkReport extends Activity{
+public class SidewalkReport extends Activity implements View.OnClickListener {
 
 
 
@@ -83,4 +83,8 @@ protected void onCreate(Bundle savedInstanceState) {
     }
 
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }

@@ -3,6 +3,8 @@ package com.getcivix.app;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -11,18 +13,23 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView;
@@ -57,7 +64,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapPage extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener,
-        BottomNavigationView.OnNavigationItemSelectedListener{
+        BottomNavigationView.OnNavigationItemSelectedListener {
 
     //getting bottom navigation view
     BottomNavigationView navigation;
@@ -151,6 +158,10 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
     private GoogleApiClient mGoogleApiClient;
     private ReportInfo mPlace;
 
+    //Button to Start Report
+    private FloatingActionButton  floatingActionButton;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -163,11 +174,61 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
         navigation = findViewById(R.id.main_navigation);
         navigation.setOnNavigationItemSelectedListener(this);
 
+        floatingActionButton = findViewById(R.id.floatingActionButton);
         getLocationPermission();
 
+        final FloatingActionButton floatingActionButton = findViewById(R.id.floatingActionButton);
+
+        //myButton.setOnClickListener(new View.OnClickListener() {
+
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+                showMyDialog (MapPage.this);
+            }
+        });
 
     }
+    private void showMyDialog(Context context) {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.fragment_report_screen);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(true);
 
+        TextView textView = (TextView) dialog.findViewById(R.id.txtTitle);
+        ListView listView = (ListView) dialog.findViewById(R.id.listView);
+        Button btnBtmLeft = (Button) dialog.findViewById(R.id.btnBtmLeft);
+        Button btnBtmRight = (Button) dialog.findViewById(R.id.btnBtmRight);
+
+        btnBtmLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        btnBtmRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // do whatever you want here
+            }
+        });
+
+        /**
+         * if you want the dialog to be specific size, do the following
+         * this will cover 85% of the screen (85% width and 85% height)
+         */
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        int dialogWidth = (int)(displayMetrics.widthPixels * 0.85);
+        int dialogHeight = (int)(displayMetrics.heightPixels * 0.85);
+        dialog.getWindow().setLayout(dialogWidth, dialogHeight);
+
+        dialog.show();
+    }
     private void init(){
         Log.d(TAG, "init: initializing");
 
@@ -419,6 +480,7 @@ private void hideSoftKeybard(){
 
         }
     };
+
 
 
 }
