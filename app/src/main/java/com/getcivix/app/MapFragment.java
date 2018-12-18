@@ -49,6 +49,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
 
+
+
+
     GoogleMap mMap;
     MapView mMapView;
     View mView;
@@ -151,6 +154,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
     }
 
+
     public boolean checkUserLocationPermission() {
 
         if(ContextCompat.checkSelfPermission(thisActivity,Manifest.permission.ACCESS_FINE_LOCATION)!=PackageManager.PERMISSION_GRANTED) {
@@ -225,6 +229,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
      */
 
 
+
+
     @Override
     public void onLocationChanged(Location location) {
 
@@ -283,6 +289,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
+
 }
 
 

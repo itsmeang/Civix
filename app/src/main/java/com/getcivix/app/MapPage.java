@@ -103,11 +103,14 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
 
 
     private boolean loadFragment(Fragment fragment) {
+
         //switching fragment
         if (fragment != null) {
+            Toast.makeText(MapPage.this, "fragment loaded", Toast.LENGTH_SHORT).show();
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.mapfragment_container, fragment)
+                    //.show(fragment)
+                    .replace(R.id.map, fragment)
                     .commit();
             return true;
         }
@@ -175,6 +178,8 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
 
         navigation = findViewById(R.id.main_navigation);
         navigation.setOnNavigationItemSelectedListener(this);
+
+        getLocationPermission();
 
         floatingActionButton = findViewById(R.id.floatingActionButton);
 
@@ -372,6 +377,8 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
         }
 
     }
+
+
 
     private void initMap(){
         Log.d(TAG, "initMap: initializing map");
