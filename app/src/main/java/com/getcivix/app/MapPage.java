@@ -134,7 +134,7 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
             }
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(false);
-
+            getLocationPermission();
             init();
         }
     }

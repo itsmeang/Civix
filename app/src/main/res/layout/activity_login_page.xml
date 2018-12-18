@@ -54,8 +54,7 @@
         android:layout_marginBottom="61dp"
         android:background="@color/civixGreen"
         android:textColor="@color/white"
-        android:text="@string/register"
-        android:textStyle="bold"
+        android:text="@string/register"        android:textStyle="bold"
         />
 
 
