@@ -5,4 +5,9 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="RootLayout" parent="AppTheme">
+        <item name="android:background">@color/fragmentcolor</item>
+    </style>
+
+
 </resources>

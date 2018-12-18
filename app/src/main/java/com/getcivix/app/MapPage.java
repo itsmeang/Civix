@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -28,6 +29,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -175,7 +177,7 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
         navigation.setOnNavigationItemSelectedListener(this);
 
         floatingActionButton = findViewById(R.id.floatingActionButton);
-        getLocationPermission();
+
 
         final FloatingActionButton floatingActionButton = findViewById(R.id.floatingActionButton);
 
@@ -195,25 +197,27 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
     private void showMyDialog(Context context) {
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         dialog.setContentView(R.layout.fragment_report_screen);
-        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCanceledOnTouchOutside(true);
         dialog.setCancelable(true);
 
-        TextView textView = (TextView) dialog.findViewById(R.id.txtTitle);
-        ListView listView = (ListView) dialog.findViewById(R.id.listView);
-        Button btnBtmLeft = (Button) dialog.findViewById(R.id.btnBtmLeft);
-        Button btnBtmRight = (Button) dialog.findViewById(R.id.btnBtmRight);
 
-        btnBtmLeft.setOnClickListener(new View.OnClickListener() {
+        TextView textView = (TextView) dialog.findViewById(R.id.txtTitle);
+        Button buttonCancel = (Button) dialog.findViewById(R.id.buttonCancel);
+        Button buttonRoad = (Button) dialog.findViewById(R.id.buttonRoad);
+
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
 
-        btnBtmRight.setOnClickListener(new View.OnClickListener() {
+        buttonRoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showMyDialog(MapPage.this);
                 // do whatever you want here
             }
         });
@@ -223,8 +227,8 @@ public class MapPage extends FragmentActivity implements OnMapReadyCallback, Goo
          * this will cover 85% of the screen (85% width and 85% height)
          */
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        int dialogWidth = (int)(displayMetrics.widthPixels * 0.85);
-        int dialogHeight = (int)(displayMetrics.heightPixels * 0.85);
+        int dialogWidth = (int)(displayMetrics.widthPixels * 0.9);
+        int dialogHeight = (int)(displayMetrics.heightPixels * 0.9);
         dialog.getWindow().setLayout(dialogWidth, dialogHeight);
 
         dialog.show();

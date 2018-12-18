@@ -40,7 +40,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="130dp"
         android:background="@color/civixGreen"
-        android:textColor="@color/beige"
+        android:textColor="@color/white"
         android:text="@string/login"
         android:textStyle="bold"
         />
@@ -53,7 +53,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="61dp"
         android:background="@color/civixGreen"
-        android:textColor="@color/beige"
+        android:textColor="@color/white"
         android:text="@string/register"
         android:textStyle="bold"
         />
