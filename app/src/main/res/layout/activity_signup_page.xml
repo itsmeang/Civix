@@ -86,7 +86,7 @@
                     android:text="@string/interests"
                     android:background="@color/white"
                     android:textSize="20dp"
-                     />
+                    />
                 <Spinner
                     android:id="@+id/spinnerInterest"
                     android:layout_width="match_parent"
@@ -102,38 +102,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp">
-            <TextView
-                android:id="@+id/gender_textview"
-                android:paddingRight="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/hint_gender"
-                android:background="@color/white"
-                android:textSize="20dp"
-             />
-            <RadioGroup
-                android:id="@+id/gender_radio_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/gender_textview"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:id="@+id/male_radio_btn"
+                <TextView
+                    android:id="@+id/gender_textview"
+                    android:paddingRight="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/hint_gender"
                     android:background="@color/white"
-                    android:text="@string/male"
-                    android:checked="true"
+                    android:textSize="20dp"
                     />
-                <RadioButton
-                    android:id="@+id/female_radio_btn"
+                <RadioGroup
+                    android:id="@+id/gender_radio_group"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:text = "@string/female"
-                    />
-            </RadioGroup>
-       </RelativeLayout>
+                    android:layout_toRightOf="@+id/gender_textview"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/male_radio_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:text="@string/male"
+                        android:checked="true"
+                        />
+                    <RadioButton
+                        android:id="@+id/female_radio_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:text = "@string/female"
+                        />
+                </RadioGroup>
+            </RelativeLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"
@@ -167,13 +167,12 @@
             android:text="@string/signup"
             android:textStyle="bold"
             />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView" />
 
     </RelativeLayout>
-
-
-
-
-
 
 
 
