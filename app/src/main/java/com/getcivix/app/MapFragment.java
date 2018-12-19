@@ -10,7 +10,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-//import android.location.LocationListener;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,9 +17,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -61,7 +58,6 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
@@ -69,22 +65,14 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.GeoPoint;
-
-import java.io.FileDescriptor;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 
 public class MapFragment extends Fragment implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
-
-
-
-
 
 
     //    GoogleMap mMap;
@@ -285,6 +273,20 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         return false;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mGoogleApiClient.stopAutoManage(getActivity());
+        mGoogleApiClient.disconnect();
+    }
+
+
+
+
+
+
+
+
     private void init(){
         Log.d(TAG, "init: initializing");
 
@@ -315,13 +317,14 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                 return false;
             }
         });
+        /*
         mGps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicked gps icon");
                 getDeviceLocation();
             }
-        });
+        }); */
 
         hideSoftKeybard();
     }
@@ -435,12 +438,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
                                     DEFAULT_ZOOM,
                                     "My Location");
 
+                            StaticConstants.reportLocation = new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
+
                         }else{
                             Log.d(TAG, "onComplete: current location is null");
                             Toast.makeText(getActivity(), "unable to get current location",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+            }else{
+                Log.d(TAG,"mlocationPermission   "+ mLocationPermissionGranted);
             }
         }catch(SecurityException e){
 
@@ -472,7 +479,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
             if(ActivityCompat.shouldShowRequestPermissionRationale(thisActivity,Manifest.permission.ACCESS_FINE_LOCATION)) {
                 ActivityCompat.requestPermissions(thisActivity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},Request_User_Location_Code);
             }
-
             else {
 
                 ActivityCompat.requestPermissions(thisActivity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},Request_User_Location_Code);
@@ -484,7 +490,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         }
         else {
 
-
+            mLocationPermissionGranted = true;
 
             return true;
 
@@ -611,7 +617,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
 
 }
-
 
 
 
