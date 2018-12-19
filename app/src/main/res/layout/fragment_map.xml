@@ -71,10 +71,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="83dp"
-        android:layout_marginRight="83dp"
-        android:layout_marginBottom="91dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginRight="57dp"
+        android:layout_marginBottom="47dp"
         android:clickable="true"
+        app:backgroundTint="@color/civixGreen"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
 </RelativeLayout>

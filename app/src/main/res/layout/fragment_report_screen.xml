@@ -17,9 +17,9 @@
         android:text="Send A Report"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
-        android:textSize="22sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:typeface="sans"/>
+        android:typeface="sans" />
 
 
     <Button
@@ -34,56 +34,118 @@
         android:text="Cancel"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="18sp"
+        android:textStyle="bold"
         android:typeface="sans" />
 
     <Button
         android:id="@+id/buttonRoad"
-        android:layout_width="118dp"
-        android:layout_height="83dp"
+        android:layout_width="93dp"
+        android:layout_height="95dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="-2dp"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="3dp"
         android:layout_toStartOf="@+id/txtTitle"
-        android:background="@drawable/road" />
+        android:background="@drawable/road"
+        android:gravity="bottom|center"
+        android:text="Roads"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="80dp"
-        android:layout_height="82dp"
+        android:layout_width="86dp"
+        android:layout_height="103dp"
         android:layout_alignStart="@+id/txtTitle"
         android:layout_alignTop="@+id/buttonRoad"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/trash" />
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="-8dp"
+        android:background="@drawable/trash"
+        android:gravity="bottom|center"
+        android:text="Trash"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/button13"
-        android:layout_width="73dp"
-        android:layout_height="88dp"
+        android:layout_width="123dp"
+        android:layout_height="94dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="73dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:background="@drawable/sidewalk" />
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:background="@drawable/sidewalk"
+        android:gravity="bottom|center"
+        android:text="Sidewalks"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button13"
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="98dp"
+        android:layout_height="101dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="-6dp"
-        android:text="Roads"
-        android:textAllCaps="true"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:typeface="sans"
-     />
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="217dp"
+        android:background="@drawable/park11"
+        android:gravity="bottom|center"
+
+        android:text="Parks"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="87dp"
+        android:layout_height="104dp"
+        android:layout_alignStart="@+id/button10"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="213dp"
+        android:background="@drawable/water"
+        android:gravity="bottom|center"
+        android:text="Water"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="113dp"
+        android:layout_alignBottom="@+id/button12"
+        android:layout_marginStart="-24dp"
+        android:layout_marginBottom="-2dp"
+        android:layout_toEndOf="@+id/txtTitle"
+        android:background="@drawable/property"
+        android:gravity="bottom|center"
+        android:text="Property"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="95dp"
+        android:layout_height="111dp"
+        android:layout_alignEnd="@+id/buttonRoad"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginBottom="58dp"
+        android:background="@drawable/other"
+        android:gravity="bottom|center"
+        android:text="Other"
+        android:textColor="@color/colorAccent"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
