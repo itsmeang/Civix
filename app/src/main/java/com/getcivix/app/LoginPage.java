@@ -52,11 +52,11 @@ public class LoginPage extends Activity implements View.OnClickListener{
         then ...*/
         if(v == buttonRegister) {
 
-            /*
+
 
             Intent intentRegister = new Intent(LoginPage.this, RegisterUserPage.class);
             startActivity(intentRegister);
-            */
+
 
             /*An account is created with User Email and Password as entered
             the edit texts in case the entries are valid.
@@ -64,7 +64,7 @@ public class LoginPage extends Activity implements View.OnClickListener{
             A Fail message is returned on unsuccessful registration*/
 
 
-
+            /*
             mAuth.createUserWithEmailAndPassword(editTextEmail.getText().toString(), editTextPassword.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -80,7 +80,7 @@ public class LoginPage extends Activity implements View.OnClickListener{
 
                             // ...
                         }
-                    });
+                    });*/
 
 
 
@@ -100,6 +100,7 @@ public class LoginPage extends Activity implements View.OnClickListener{
                                 // Sign in success, update UI with the signed-in user's information
 
                                 FirebaseUser user = mAuth.getCurrentUser();
+                                StaticConstants.userID = user.getUid();
                                 Toast.makeText(LoginPage.this, "Login successful", Toast.LENGTH_SHORT).show();
                                 Intent intentHomePage = new Intent(LoginPage.this, MapPage.class);
                                 //Intent intentHomePage = new Intent(LoginPage.this, OtherReport.class);

@@ -396,35 +396,11 @@ public class RegisterUserPage extends Activity implements View.OnClickListener{
         }
         else if(v == buttonSignUp) {
 
-             /*An account is created with User Email and Password as entered
-            the edit texts in case the entries are valid.
-            A Success message is returned on successful registration.
-            A Fail message is returned on unsuccessful registration*/
-            mAuth.createUserWithEmailAndPassword(editTextRegisterEmail.getText().toString(), editTextCreatePassword.getText().toString())
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                //Sign in success, update UI with the signed-in user's information
-                                Toast.makeText(RegisterUserPage.this, "You are successfully registered. Let's go in the store.", Toast.LENGTH_SHORT).show();
-
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Toast.makeText(RegisterUserPage.this, "The registration failed. Please, review your credentials.", Toast.LENGTH_SHORT).show();
-                            }
-
-                            // ...
-                        }
-                    });
-
-
             /*An account is created with User Email and Password as entered
             the edit texts in case the entries are valid.
             A Success message is returned on successful registration.
             A Fail message is returned on unsuccessful registration*/
 
-
-            /*
             mAuth.createUserWithEmailAndPassword(editTextRegisterEmail.getText().toString(), editTextCreatePassword.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -445,7 +421,7 @@ public class RegisterUserPage extends Activity implements View.OnClickListener{
                                     Log.d("Profile fragment", "User already exists");
                                     updateUser(name, email,gender,interest,credibility, uploadedProfileImageKey);
                                 }*/
-            /*
+
 
                             } else {
                                 // If sign in fails, display a message to the user.
@@ -453,7 +429,7 @@ public class RegisterUserPage extends Activity implements View.OnClickListener{
                             }
                             // ...
                         }
-                    }); */
+                    });
 
 
 
