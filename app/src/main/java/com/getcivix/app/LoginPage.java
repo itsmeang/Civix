@@ -52,15 +52,18 @@ public class LoginPage extends Activity implements View.OnClickListener{
         then ...*/
         if(v == buttonRegister) {
 
+            /*
+
             Intent intentRegister = new Intent(LoginPage.this, RegisterUserPage.class);
             startActivity(intentRegister);
+            */
 
             /*An account is created with User Email and Password as entered
             the edit texts in case the entries are valid.
             A Success message is returned on successful registration.
             A Fail message is returned on unsuccessful registration*/
 
-            /*
+
 
             mAuth.createUserWithEmailAndPassword(editTextEmail.getText().toString(), editTextPassword.getText().toString())
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -78,7 +81,7 @@ public class LoginPage extends Activity implements View.OnClickListener{
                             // ...
                         }
                     });
-                    */
+
 
 
         }

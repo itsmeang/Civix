@@ -32,18 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomePage" />
         <activity android:name=".MapPage" />
-        <activity android:name=".ListPage" />
-        <activity android:name=".StatusPage" />
-        <activity android:name=".TrashReport" />
-        <activity android:name=".StreetReport" />
-        <activity android:name=".SidewalkReport" />
-        <activity android:name=".PropertyReport" />
-        <activity android:name=".WaterReport" />
-        <activity android:name=".RampReport" />
-        <activity android:name=".BikeReport" />
-        <activity android:name=".CrosswalkReport" />
         <activity android:name=".OtherReport" />
         <activity
             android:name=".MapsActivity"
