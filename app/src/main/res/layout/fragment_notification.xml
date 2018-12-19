@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".NotificationFragment">
 
-
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -85,15 +84,12 @@
                     android:gravity="center_horizontal"
                     android:text="View credibility points"
                     android:textAllCaps="false" />
-                <TextView
-                    android:id="@+id/textViewPicture"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:text="View picture"
-                    android:textAllCaps="false" />
+                <ImageView
+                    android:id="@+id/imageViewProfilePicture"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="2"
+                    android:gravity="center_horizontal"/>
 
 
 
@@ -143,15 +139,12 @@
                     android:text="On the right is the report picture"
                     android:textAllCaps="false" />
 
-                <TextView
-                    android:id="@+id/textViewReportPicture"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/imageViewReportPicture"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:gravity="center_horizontal"
-                    android:text="Picture shows here"
-                    android:textAllCaps="false" />
+                    android:gravity="center_horizontal"/>
 
             </LinearLayout>
 
@@ -217,4 +210,5 @@
         </LinearLayout>
 
     </LinearLayout>
+
 </FrameLayout>

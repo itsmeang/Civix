@@ -15,8 +15,6 @@
         tools:context="com.getcivix.app.OtherReport">
 
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -82,11 +80,19 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center_horizontal"
-                    android:text="Attach your profile picture"
+                    android:text="image_name"
+                    android:hint="Give a image name"
                     android:textAllCaps="false" />
 
                 <Button
                     android:id="@+id/buttonAttachPicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Attach" />
+
+                <Button
+                    android:id="@+id/buttonUplaodPicture"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -121,6 +127,20 @@
                     android:hint="Enter your comment"
                     android:inputType="textPersonName" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextEnterCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Enter report category"
+                    android:inputType="number" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -134,11 +154,18 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center_horizontal"
-                    android:text="Attach a picture for the report"
+                    android:text="report_image_name"
                     android:textAllCaps="false" />
 
                 <Button
                     android:id="@+id/buttonAttachReportPicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Attach" />
+
+                <Button
+                    android:id="@+id/buttonUploadReportPicture"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -156,5 +183,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
 </FrameLayout>
