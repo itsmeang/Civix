@@ -199,7 +199,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
             @Override
             public void onClick(View v) {
                 showMyDialog(getContext());
-                // do whatever you want here
+                //link to second dialog box
             }
         });
 
