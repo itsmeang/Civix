@@ -7,13 +7,15 @@
     android:layout_centerHorizontal="true"
     android:orientation="vertical">
 
+
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
+        android:layout_alignStart="@+id/buttonCancel"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="-19dp"
+        android:layout_marginTop="18dp"
         android:text="Send A Report"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
@@ -38,115 +40,115 @@
         android:textStyle="bold"
         android:typeface="sans" />
 
-    <Button
-        android:id="@+id/buttonRoad"
-        android:layout_width="76dp"
-        android:layout_height="77dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="86dp"
-        android:layout_marginEnd="17dp"
-        android:layout_toStartOf="@+id/txtTitle"
-        android:background="@drawable/road"
-        android:gravity="bottom|center"
-        android:text="Roads"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="67dp"
-        android:layout_height="82dp"
-        android:layout_alignStart="@+id/txtTitle"
-        android:layout_alignTop="@+id/buttonRoad"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="-4dp"
-        android:background="@drawable/trash"
-        android:gravity="bottom|center"
-        android:text="Trash"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/button13"
-        android:layout_width="121dp"
-        android:layout_height="78dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="86dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/sidewalk"
-        android:gravity="bottom|center"
-        android:text="Sidewalks"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/button11"
-        android:layout_width="76dp"
-        android:layout_height="85dp"
+    <android.support.v7.widget.GridLayout
+        android:layout_width="340dp"
+        android:layout_height="341dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginLeft="21dp"
-        android:layout_marginTop="218dp"
-        android:background="@drawable/park11"
-        android:gravity="bottom|center"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="97dp">
 
-        android:text="Parks"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/buttonRoad"
+            android:layout_width="93dp"
+            android:layout_height="94dp"
+            android:background="@drawable/road"
+            android:gravity="bottom|center"
+            android:text="Roads"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="0"
+            app:layout_gravity="bottom|center"
+            app:layout_row="0" />
 
-    <Button
-        android:id="@+id/button12"
-        android:layout_width="70dp"
-        android:layout_height="87dp"
-        android:layout_alignStart="@+id/button10"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="218dp"
-        android:background="@drawable/water"
-        android:gravity="bottom|center"
-        android:text="Water"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="104dp"
+            android:layout_height="116dp"
+            android:background="@drawable/trash"
+            android:gravity="bottom|center"
+            android:text="Trash"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_gravity="bottom|center"
+            app:layout_row="0" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="102dp"
-        android:layout_height="87dp"
-        android:layout_alignBottom="@+id/button12"
-        android:layout_marginStart="-21dp"
-        android:layout_marginBottom="-1dp"
-        android:layout_toEndOf="@+id/txtTitle"
-        android:background="@drawable/property"
-        android:gravity="bottom|center"
-        android:text="Property"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/button13"
+            android:layout_width="123dp"
+            android:layout_height="91dp"
+            android:background="@drawable/sidewalk"
+            android:gravity="bottom|center"
+            android:text="Sidewalks"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="2"
+            app:layout_gravity="bottom|center"
+            app:layout_row="0" />
 
-    <Button
-        android:id="@+id/button14"
-        android:layout_width="73dp"
-        android:layout_height="81dp"
-        android:layout_alignEnd="@+id/buttonRoad"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-6dp"
-        android:layout_marginBottom="89dp"
-        android:background="@drawable/other"
-        android:gravity="bottom|center"
-        android:text="Other"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="91dp"
+            android:layout_height="111dp"
+            android:background="@drawable/park11"
+            android:gravity="bottom|center"
+            android:text="Parks"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="0"
+            app:layout_gravity="bottom|center"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="88dp"
+            android:layout_height="95dp"
+            android:background="@drawable/water"
+            android:gravity="bottom|center"
+            android:text="Water"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="1"
+            app:layout_gravity="bottom|center"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="117dp"
+            android:layout_height="97dp"
+            android:background="@drawable/property"
+            android:gravity="bottom|center"
+            android:text="Property"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="2"
+            app:layout_gravity="bottom|center"
+            app:layout_row="1" />
+
+        <Button
+            android:id="@+id/button14"
+            android:layout_width="87dp"
+            android:layout_height="86dp"
+            android:background="@drawable/other"
+            android:gravity="bottom|center"
+            android:text="Other"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_column="2"
+            app:layout_gravity="bottom|center"
+            app:layout_row="3" />
+
+    </android.support.v7.widget.GridLayout>
 
 
 </RelativeLayout>
