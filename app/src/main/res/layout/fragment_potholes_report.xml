@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignalReport">
+    tools:context=".PotholesReport">
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -37,19 +37,19 @@
                     android:layout_width="86dp"
                     android:layout_height="91dp"
                     android:gravity="center"
-                    android:text="Signal"
+                    android:text="Potholes"
                     android:layout_weight="1"
                     android:textColor="@color/colorAccent"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imageSignal"
-                android:layout_width="86dp"
-                android:layout_height="91dp"
-                android:background="@drawable/trafficlight"
+                <ImageView
+                    android:id="@+id/imageSignal"
+                    android:layout_width="86dp"
+                    android:layout_height="91dp"
+                    android:background="@drawable/pothole"
 
-                />
+                    />
 
 
 
