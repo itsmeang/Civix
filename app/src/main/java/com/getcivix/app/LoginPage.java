@@ -71,7 +71,7 @@ public class LoginPage extends Activity implements View.OnClickListener{
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 //Sign in success, update UI with the signed-in user's information
-                                Toast.makeText(LoginPage.this, "You are successfully registered. Let's go in the store.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginPage.this, "You are successfully registered.", Toast.LENGTH_SHORT).show();
 
                             } else {
                                 // If sign in fails, display a message to the user.
@@ -107,7 +107,7 @@ public class LoginPage extends Activity implements View.OnClickListener{
                                 startActivity(intentHomePage);
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(LoginPage.this, "Access denied. You may register first before signing in.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginPage.this, "Access denied. You must register first before signing in.", Toast.LENGTH_SHORT).show();
                             }
 
                             // ...
