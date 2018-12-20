@@ -28,6 +28,7 @@ public class MapPage extends FragmentActivity implements
         switch (item.getItemId()) {
             case R.id.mapmenu:
                 fragment = new MapFragment();
+                ((MapFragment) fragment).setMapFragment(this);
                 ((MapFragment) fragment).setThisActivity(this);
                 break;
 
@@ -53,7 +54,7 @@ public class MapPage extends FragmentActivity implements
 
 
 
-    private boolean loadFragment(Fragment fragment) {
+    public boolean loadFragment(Fragment fragment) {
 
         //switching fragment
         if (fragment != null) {

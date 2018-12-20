@@ -111,6 +111,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
     private PlaceAutocompleteAdapter mPlaceAutocompleteAdapter;
     private GoogleApiClient mGoogleApiClient;
     private ReportInfo mPlace;
+    private MapPage mapPage;
 
     //Button to Start Report
     private FloatingActionButton floatingActionButton;
@@ -118,6 +119,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
 
     public MapFragment() {
         // Required empty public constructor
+    }
+
+    public void setMapFragment(MapPage mapPage) {
+        // Required empty public constructor
+        this.mapPage=mapPage;
     }
 
     public void setThisActivity(Activity thisActivity) {
@@ -158,6 +164,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
             @Override
             public void onClick(View v) {
                 showMyDialog (getContext());
+
             }
         });
 
@@ -169,6 +176,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         }
         return mView;
     }
+
 
 
 
@@ -198,8 +206,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         buttonRoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showMyDialog(getContext());
+                //showMyDialog(getContext());
                 //link to second dialog box
+                dialog.dismiss();
+                ((MapPage)thisActivity).loadFragment(new ProfileFragment());
             }
         });
 
