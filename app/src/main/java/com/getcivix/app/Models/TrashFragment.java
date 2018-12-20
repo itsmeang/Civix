@@ -22,7 +22,7 @@ public class TrashFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.trash_fragment, container, false);
+        return inflater.inflate(R.layout.trash_fragment_2, container, false);
     }
 
     @Override

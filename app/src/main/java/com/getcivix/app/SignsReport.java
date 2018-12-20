@@ -24,7 +24,6 @@ import android.widget.Toast;
 import com.getcivix.app.Models.Category;
 import com.getcivix.app.Models.ReportModel;
 import com.getcivix.app.Models.UploadInfo;
-import com.getcivix.app.Models.User;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,19 +40,18 @@ import com.google.firebase.storage.UploadTask;
 
 import static android.app.Activity.RESULT_OK;
 
-
-public class SignalReport extends Fragment {
+public class SignsReport extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static final String TAG = "SignalReport" ;
+    private static final String TAG = "SignsReport" ;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    private String categoryName="Signal";
+    private String categoryName="Signs";
     private String categoryType="Roads";
     private String categoryTypeColor="Green";
 
@@ -104,7 +102,7 @@ public class SignalReport extends Fragment {
 
     //private OnFragmentInteractionListener mListener;
 
-    public SignalReport() {
+    public SignsReport() {
         // Required empty public constructor
     }
 
@@ -127,7 +125,7 @@ public class SignalReport extends Fragment {
         //with the fragment you want to inflate
         //like if the class is HomeFragment it should have R.layout.home_fragment
         //if it is DashboardFragment it should have R.layout.fragment_dashboard
-        View mView =  inflater.inflate(R.layout.fragment_signal_report, null);
+        View mView =  inflater.inflate(R.layout.fragment_signs_report, null);
         mComment =  mView.findViewById(R.id.editTextEnterYourComment);
         mEditTextEnterCategory =  mView.findViewById(R.id.editTextEnterCategory);
         mSubmitReportButton = mView.findViewById(R.id.buttonSubmitReport);
@@ -184,7 +182,7 @@ public class SignalReport extends Fragment {
         isReportPictureChoosing = false;
         if (fileUri != null) {
             String fileName;
-                fileName = textViewAttachReportPicture.getText().toString();
+            fileName = textViewAttachReportPicture.getText().toString();
 
             if (!validateInputFileName(fileName)) {
                 return;

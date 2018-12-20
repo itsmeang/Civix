@@ -195,6 +195,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         TextView textView = (TextView) dialog.findViewById(R.id.txtTitle);
         Button buttonCancel = (Button) dialog.findViewById(R.id.buttonCancel);
         Button buttonRoad = (Button) dialog.findViewById(R.id.buttonRoad);
+        Button buttonTrash = (Button) dialog.findViewById(R.id.buttonTrash);
+        Button buttonSidewalks = (Button) dialog.findViewById(R.id.buttonSidewalks);
+        Button buttonParks = (Button) dialog.findViewById(R.id.buttonParks);
+        Button buttonWater = (Button) dialog.findViewById(R.id.buttonWater);
+        Button buttonProperty = (Button) dialog.findViewById(R.id.buttonProperty);
+        Button buttonOther = (Button) dialog.findViewById(R.id.buttonOther);
 
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,6 +210,69 @@ public class MapFragment extends Fragment implements OnMapReadyCallback,
         });
 
         buttonRoad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //showMyDialog(getContext());
+                //link to second dialog box
+                dialog.dismiss();
+                RoadCategory fragment=new RoadCategory();
+                fragment.setThisActivity(thisActivity);
+                ((MapPage)thisActivity).loadFragment(fragment);
+
+            }
+        });
+
+        buttonTrash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //showMyDialog(getContext());
+                //link to second dialog box
+                dialog.dismiss();
+                ((MapPage)thisActivity).loadFragment(new TrashCategory());
+            }
+        });
+
+        buttonSidewalks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //showMyDialog(getContext());
+                //link to second dialog box
+                dialog.dismiss();
+                ((MapPage)thisActivity).loadFragment(new ProfileFragment());
+            }
+        });
+
+        buttonParks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //showMyDialog(getContext());
+                //link to second dialog box
+                dialog.dismiss();
+                ((MapPage)thisActivity).loadFragment(new ProfileFragment());
+            }
+        });
+
+        buttonWater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //showMyDialog(getContext());
+                //link to second dialog box
+                dialog.dismiss();
+                ((MapPage)thisActivity).loadFragment(new ProfileFragment());
+            }
+        });
+
+        buttonProperty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //showMyDialog(getContext());
+                //link to second dialog box
+                dialog.dismiss();
+                ((MapPage)thisActivity).loadFragment(new ProfileFragment());
+            }
+        });
+
+        buttonOther.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //showMyDialog(getContext());
