@@ -8,15 +8,14 @@
     android:orientation="vertical">
 
 
-
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_alignStart="@+id/buttonCancel"
+
         android:layout_alignParentTop="true"
-        android:layout_marginStart="-19dp"
-        android:layout_marginTop="18dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:text="Send A Report"
         android:textAllCaps="false"
         android:textColor="@color/colorAccent"
@@ -42,22 +41,23 @@
         android:typeface="sans" />
 
     <android.support.v7.widget.GridLayout
-        android:layout_width="340dp"
-        android:layout_height="341dp"
+        android:layout_width="match_parent"
+        android:layout_height="346dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentTop="false"
+        android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="97dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
         android:padding="3dp">
 
         <Button
             android:id="@+id/buttonRoad"
-            android:layout_width="93dp"
-            android:layout_height="94dp"
+            android:layout_width="112dp"
+            android:layout_height="103dp"
             android:background="@drawable/road"
             android:gravity="bottom|center"
             android:text="Roads"
@@ -65,13 +65,13 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_column="0"
-            app:layout_gravity="bottom|center"
+            app:layout_gravity="center"
             app:layout_row="0" />
 
         <Button
             android:id="@+id/buttonTrash"
-            android:layout_width="104dp"
-            android:layout_height="116dp"
+            android:layout_width="108dp"
+            android:layout_height="109dp"
             android:background="@drawable/trash"
             android:gravity="bottom|center"
             android:text="Trash"
@@ -79,13 +79,13 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_column="1"
-            app:layout_gravity="bottom|center"
+            app:layout_gravity="center"
             app:layout_row="0" />
 
         <Button
             android:id="@+id/buttonSidewalks"
-            android:layout_width="123dp"
-            android:layout_height="91dp"
+            android:layout_width="127dp"
+            android:layout_height="98dp"
             android:background="@drawable/sidewalk"
             android:gravity="bottom|center"
             android:text="Sidewalks"
@@ -93,13 +93,13 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_column="2"
-            app:layout_gravity="bottom|center"
+            app:layout_gravity="center"
             app:layout_row="0" />
 
         <Button
             android:id="@+id/buttonParks"
-            android:layout_width="91dp"
-            android:layout_height="111dp"
+            android:layout_width="92dp"
+            android:layout_height="109dp"
             android:background="@drawable/park11"
             android:gravity="bottom|center"
             android:text="Parks"
@@ -107,13 +107,13 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_column="0"
-            app:layout_gravity="bottom|center"
+            app:layout_gravity="center"
             app:layout_row="1" />
 
         <Button
             android:id="@+id/buttonWater"
-            android:layout_width="88dp"
-            android:layout_height="95dp"
+            android:layout_width="94dp"
+            android:layout_height="105dp"
             android:background="@drawable/water"
             android:gravity="bottom|center"
             android:text="Water"
@@ -121,7 +121,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_column="1"
-            app:layout_gravity="bottom|center"
+            app:layout_gravity="center"
             app:layout_row="1" />
 
         <Button
@@ -135,13 +135,13 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_column="2"
-            app:layout_gravity="bottom|center"
+            app:layout_gravity="center"
             app:layout_row="1" />
 
         <Button
             android:id="@+id/buttonOther"
-            android:layout_width="87dp"
-            android:layout_height="86dp"
+            android:layout_width="81dp"
+            android:layout_height="110dp"
             android:background="@drawable/other"
             android:gravity="bottom|center"
             android:text="Other"
@@ -149,8 +149,8 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_column="2"
-            app:layout_gravity="bottom|center"
-            app:layout_row="3" />
+            app:layout_gravity="center"
+            app:layout_row="2" />
 
     </android.support.v7.widget.GridLayout>
 
