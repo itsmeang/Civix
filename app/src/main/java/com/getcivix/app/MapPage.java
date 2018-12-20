@@ -32,19 +32,19 @@ public class MapPage extends FragmentActivity implements
                 break;
 
             case R.id.notificationmenu:
-                fragment = new NotificationFragment();
+                fragment = new SignalReport();
                 break;
 
             case R.id.voicemenu:
-                fragment = new ProfileFragment();
+                fragment = new SignalReport();
                 break;
 
             case R.id.profilemenu:
-                fragment = new NotificationFragment();
+                fragment = new ProfileFragment();
                 break;
 
             case R.id.othermenu:
-                fragment = new ProfileFragment();
+                fragment = new SignalReport();
                 break;
         }
 
@@ -57,7 +57,7 @@ public class MapPage extends FragmentActivity implements
 
         //switching fragment
         if (fragment != null) {
-            Toast.makeText(MapPage.this, "fragment loaded", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MapPage.this, "fragment loaded", Toast.LENGTH_SHORT).show();
             getSupportFragmentManager()
                     .beginTransaction()
                     //.show(fragment)

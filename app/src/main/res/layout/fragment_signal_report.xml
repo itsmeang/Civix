@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignalReport">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context="com.getcivix.app.OtherReport">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/editTextDummy1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:inputType="textPersonName" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/button16"
+                    android:layout_width="86dp"
+                    android:layout_height="91dp"
+                    android:gravity="center"
+                    android:text="Signal"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageSignal"
+                android:layout_width="86dp"
+                android:layout_height="91dp"
+                android:background="@drawable/trafficlight"
+
+                />
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/editTextDummy2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:inputType="textPersonName" />
+
+
+
+            <TextView
+                android:id="@+id/textViewUpdateCondition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="CREATE A REPORT BELOW"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/editTextDummy3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:inputType="textPersonName" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextEnterYourComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="top"
+                    android:hint="Enter your comment"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewAttachReportPicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="center_horizontal"
+                    android:text="Attached Image"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/buttonAttachReportPicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/civixGreen"
+                    android:textColor="@color/white"
+                    android:text="Attach" />
+
+                <TextView
+                    android:id="@+id/editTextDummy4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:layout_weight="1"
+                    android:inputType="textPersonName" />
+
+
+                <Button
+                    android:id="@+id/buttonUploadReportPicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/civixGreen"
+                    android:textColor="@color/white"
+                    android:text="Upload" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/editTextDummy5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text=""
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonSubmitReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/civixGreen"
+                android:textColor="@color/white"
+                android:text="Submit Report" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

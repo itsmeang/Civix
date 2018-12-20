@@ -157,7 +157,7 @@ public class NotificationFragment extends Fragment {
 //                Picasso.get().load(user.uplaodedProfileImageKey).into(mImageViewProfilePicture);
 
                 Picasso.get()
-                        .load(user.uplaodedProfileImageKey)
+                        .load(user.uploadedProfileImageKey)
                         .error(R.drawable.common_google_signin_btn_icon_dark)
                         .into(mImageViewProfilePicture);
             }

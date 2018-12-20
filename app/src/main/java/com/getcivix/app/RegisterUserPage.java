@@ -344,7 +344,7 @@ public class RegisterUserPage extends Activity implements View.OnClickListener{
     /**
      * Creating new user node under 'users'
      */
-    private void createUser(String userName, String email, String gender, String interest, String uplaodedProfileImageKey) {
+    private void createUser(String userUid,String userName, String email, String gender, String interest, String uplaodedProfileImageKey) {
         // TODO
         // In real apps this userId should be fetched
         // by implementing firebase auth
@@ -352,7 +352,7 @@ public class RegisterUserPage extends Activity implements View.OnClickListener{
             userId = mFirebaseDatabaseUser.push().getKey();
         }
 
-        User user = new User(userName, email, gender, interest, uplaodedProfileImageKey);
+        User user = new User(userUid,userName, email, gender, interest, uplaodedProfileImageKey);
 
         mFirebaseDatabaseUser.child(userId).setValue(user);
     }
@@ -408,11 +408,15 @@ public class RegisterUserPage extends Activity implements View.OnClickListener{
                             if (task.isSuccessful()) {
                                 //Sign in success, update UI with the signed-in user's information
                                 Toast.makeText(RegisterUserPage.this, "You are successfully registered. You can now sign-in", Toast.LENGTH_SHORT).show();
+
+                                FirebaseUser user = mAuth.getCurrentUser();
+
+                                String userUid=user.getUid();
                                 String name = editTextRegisterUsername.getText().toString();
                                 String email = editTextRegisterEmail.getText().toString();
                                 String gender = selected_radio_btn.getText().toString();
                                 String interest = spinnerInterest.getSelectedItem().toString();
-                                createUser(name, email,gender,interest, uploadedProfileImageKey);
+                                createUser(userUid,name, email,gender,interest, uploadedProfileImageKey);
                                 // Check for already existed userId
                                 /*
                                 if (TextUtils.isEmpty(userId)) {

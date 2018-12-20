@@ -6,10 +6,10 @@ import com.google.firebase.database.IgnoreExtraProperties;
 public class Category {
 
     public String categoryName;
-    public Integer categoryType;
+    public String categoryType;
     public String categoryTypeColor;
 
-    public Category(String categoryName, Integer categoryType, String categoryTypeColor) {
+    public Category(String categoryName, String categoryType, String categoryTypeColor) {
         this.categoryName = categoryName;
         this.categoryType = categoryType;
         this.categoryTypeColor = categoryTypeColor;
