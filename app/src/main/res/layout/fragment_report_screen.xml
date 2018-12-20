@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
 
+
     <TextView
         android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
@@ -46,9 +47,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="97dp">
+        android:layout_marginTop="97dp"
+        android:padding="3dp">
 
         <Button
             android:id="@+id/buttonRoad"
@@ -65,7 +69,7 @@
             app:layout_row="0" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/buttonTrash"
             android:layout_width="104dp"
             android:layout_height="116dp"
             android:background="@drawable/trash"
@@ -79,7 +83,7 @@
             app:layout_row="0" />
 
         <Button
-            android:id="@+id/button13"
+            android:id="@+id/buttonSidewalks"
             android:layout_width="123dp"
             android:layout_height="91dp"
             android:background="@drawable/sidewalk"
@@ -93,7 +97,7 @@
             app:layout_row="0" />
 
         <Button
-            android:id="@+id/button11"
+            android:id="@+id/buttonParks"
             android:layout_width="91dp"
             android:layout_height="111dp"
             android:background="@drawable/park11"
@@ -107,7 +111,7 @@
             app:layout_row="1" />
 
         <Button
-            android:id="@+id/button12"
+            android:id="@+id/buttonWater"
             android:layout_width="88dp"
             android:layout_height="95dp"
             android:background="@drawable/water"
@@ -121,7 +125,7 @@
             app:layout_row="1" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonProperty"
             android:layout_width="117dp"
             android:layout_height="97dp"
             android:background="@drawable/property"
@@ -135,7 +139,7 @@
             app:layout_row="1" />
 
         <Button
-            android:id="@+id/button14"
+            android:id="@+id/buttonOther"
             android:layout_width="87dp"
             android:layout_height="86dp"
             android:background="@drawable/other"
